@@ -1,14 +1,23 @@
 const btnHamburgur = document.querySelector('#jsbtnHamburgur')
 const header = document.querySelector('.header')
-const overlay =
+const overlay = document.querySelector('.overlay')
 
 
 btnHamburgur.addEventListener('click', function(){ 
-    console.log('clicked')
+    // console.log('clicked')
     
     if(header.classList.contains('open')){ // Close hamburgur menu
+        console.log('close')
+
         header.classList.remove('open')
-    } else {
-        header.classList.add('open') // Open hamburgur menu
+        overlay.classList.remove('fade-in')
+        overlay.classList.add('fade-out')
+    } else { // Open hamburgur menu
+        console.log('open')
+
+        header.classList.add('open') 
+        overlay.classList.remove('fade-out')
+        overlay.classList.add('fade-in')
+
     } 
 })
