@@ -22,7 +22,7 @@
         }
     }
 
-    &__menu { //Mobile Menu
+    &__toggle { //Mobile Menu
 
         > span {
             display: block;
@@ -86,7 +86,7 @@
     
     // Hamburgur open styles
     &.open {
-        .header__menu {
+        .header__toggle {
             > span:first-child {
                 transform: rotate(45deg);
             }
@@ -97,9 +97,21 @@
             
             > span:last-child {
                 transform: rotate(-45deg);
+            }
         }
     }
-}
+
+    &__menu {
+        padding: 1.625rem;
+        background: $white;
+        text-align: center;
+
+        a {
+            display: block;
+            color: $darkBlue;
+            padding: 0.625rem;
+        }
+    }
 
 }
 
