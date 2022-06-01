@@ -1,6 +1,20 @@
+.overlay {
+    display: block;
+    opacity: 0;
+    position: fixed;
+    top: 3.75rem;
+    right: 0px;
+    bottom: 0px;
+    left: 0px;
+    background-image: linear-gradient($darkBlue, transparent);
+
+}
+
 .header {
     nav {
-        padding: 24px;
+        position: relative;
+        z-index: 1;
+        padding: 1.0625rem 1.5rem;
     }
 
     &__logo {
@@ -16,10 +30,11 @@
             display: block;
             width: 26px;
             height: 2px;
-            background-color: darkblue;   
-
+            background-color: darkblue;
+            transition: all 300ms ease-in-out;   
+            transform-origin: 3px 1px;
             &:not(:last-child){
-                margin-bottom: 3px;
+                margin-bottom: 5px;
             }
         }
 
@@ -27,18 +42,71 @@
 
     &__links {
         a {
+            position: relative;
             font-size: $font-sm;
             color: $grayishBlue;
-            
-            &:not(:last-child){
-                margin-left: 32px;
-            }
-        }
+            transition: color 300ms ease-in-out;
 
+            &::before {
+                content: "";
+                display: block;
+                position: absolute;
+                height: 5px;
+                left: 0;
+                right: 0;
+                bottom: -30px;
+                background: linear-gradient(to right, limeGreen, $brightCyan);
+                opacity: 0;
+                transition: opacity 300ms ease-in-out;
+            }
+            
+            &:hover {
+                color: $darkBlue;
+
+                &::before {
+                    opacity: 1;
+                }
+            }
+
+            &:not(:last-child){
+                margin-right: 32px;
+            }
+
+        }
     }
 
     &__cta {
         font-size: $font-sm;
-        
+        transition: opacity ease-in-out;
+
+        &:hover {
+            opacity: 0.75;
+        }
+    }
+
+
+    
+    // Hamburgur open styles
+    &.open {
+        .overlay {
+            display: block;
+            animation: fade-in 300ms ease-in-out forwards;
+        }
+
+        .header__menu {
+            > span:first-child {
+                transform: rotate(45deg);
+            }
+            
+            > span:nth-child(2) {
+                opacity: 0;
+            }
+            
+            > span:last-child {
+                transform: rotate(-45deg);
+        }
     }
 }
+
+}
+

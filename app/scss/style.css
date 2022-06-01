@@ -1,3 +1,46 @@
+@-webkit-keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+.fade-in {
+  -webkit-animation: fade-in 300ms ease-in-out forwards;
+          animation: fade-in 300ms ease-in-out forwards;
+}
+
+@-webkit-keyframes fade-out {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fade-out {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+.fade-out {
+  -webkit-animation: fade-out 300ms ease-in-out forwards;
+          animation: fade-out 300ms ease-in-out forwards;
+}
+
 html {
   font-size: 100%;
   box-sizing: border-box;
@@ -54,8 +97,21 @@ button, .button {
   }
 }
 
+.overlay {
+  display: block;
+  opacity: 0;
+  position: fixed;
+  top: 3.75rem;
+  right: 0px;
+  bottom: 0px;
+  left: 0px;
+  background-image: linear-gradient(hsl(233deg, 26%, 24%), transparent);
+}
+
 .header nav {
-  padding: 24px;
+  position: relative;
+  z-index: 1;
+  padding: 1.0625rem 1.5rem;
 }
 .header__logo img {
   width: 8.8125rem;
@@ -66,17 +122,57 @@ button, .button {
   width: 26px;
   height: 2px;
   background-color: darkblue;
+  transition: all 300ms ease-in-out;
+  transform-origin: 3px 1px;
 }
 .header__menu > span:not(:last-child) {
-  margin-bottom: 3px;
+  margin-bottom: 5px;
 }
 .header__links a {
+  position: relative;
   font-size: 0.875rem;
   color: hsl(233deg, 8%, 62%);
+  transition: color 300ms ease-in-out;
+}
+.header__links a::before {
+  content: "";
+  display: block;
+  position: absolute;
+  height: 5px;
+  left: 0;
+  right: 0;
+  bottom: -30px;
+  background: linear-gradient(to right, limeGreen, hsl(192deg, 70%, 51%));
+  opacity: 0;
+  transition: opacity 300ms ease-in-out;
+}
+.header__links a:hover {
+  color: hsl(233deg, 26%, 24%);
+}
+.header__links a:hover::before {
+  opacity: 1;
 }
 .header__links a:not(:last-child) {
-  margin-left: 32px;
+  margin-right: 32px;
 }
 .header__cta {
   font-size: 0.875rem;
+  transition: opacity ease-in-out;
+}
+.header__cta:hover {
+  opacity: 0.75;
+}
+.header.open .overlay {
+  display: block;
+  -webkit-animation: fade-in 300ms ease-in-out forwards;
+          animation: fade-in 300ms ease-in-out forwards;
+}
+.header.open .header__menu > span:first-child {
+  transform: rotate(45deg);
+}
+.header.open .header__menu > span:nth-child(2) {
+  opacity: 0;
+}
+.header.open .header__menu > span:last-child {
+  transform: rotate(-45deg);
 }/*# sourceMappingURL=style.css.map */
