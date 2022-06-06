@@ -75,17 +75,6 @@
 
         }
     }
-
-    &__cta {
-        font-size: $font-sm;
-        transition: opacity ease-in-out;
-
-        &:hover {
-            opacity: 0.75;
-        }
-    }
-
-
     
     // Hamburgur open styles
     &.open {
