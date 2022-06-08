@@ -16,6 +16,11 @@
         background-position: center center;
         min-height: 17.5rem;
         
+        @include breakpoint-up(medium) {
+            min-height: 25rem;
+            background-position: center 60%;
+        }
+
         @include breakpoint-up(large){
             flex: 3;  
             order: 2;
@@ -23,20 +28,20 @@
             background-image: none;
         }
 
-        &::before{
+        &::before {
             content: "";
-            width: 100%;
+            width: 150%;
             height: 100%;
             position: absolute;
-            background-image: url("/images/bg-intro-desktop.svg");
-            background-size: 93%;
-            background-repeat: no-repeat;
-            background-position: center bottom;
 
-            @include breakpoint-up(large){
+
+            @include breakpoint-up(large) {
+                background-image: url("/images/bg-intro-desktop.svg");
                 width: 150%;
                 background-size: 122%;
                 background-repeat: no-repeat;
+                background-position: 0% 83%;
+                background-size: 122%;
                 background-position: 0% 83%;
             }
         }
@@ -50,6 +55,10 @@
             background-size: 93%;
             background-repeat: no-repeat;
             background-position: center bottom;
+
+            @include breakpoint-up(medium) {
+                background-size: 52%; 
+            }
 
             @include breakpoint-up(large){
                 width: 120%;
