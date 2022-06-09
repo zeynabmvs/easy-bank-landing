@@ -396,6 +396,12 @@ button:hover, .button:hover {
 .feature {
   margin-bottom: 3.75rem;
   background-color: hsl(220deg, 16%, 96%);
+  text-align: center;
+}
+@media (min-width: 40em) {
+  .feature {
+    text-align: left;
+  }
 }
 @media (min-width: 64em) {
   .feature__intro {
