@@ -310,6 +310,7 @@ button:hover::before, .button:hover::before {
   transform: rotate(-45deg);
 }
 .header__menu {
+  z-index: 2;
   position: absolute;
   width: calc(100% - 3rem);
   left: 50%;

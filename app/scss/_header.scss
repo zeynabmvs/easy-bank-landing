@@ -93,7 +93,8 @@
         }
     }
 
-    &__menu {        
+    &__menu {   
+        z-index: 2;     
         position: absolute;
         width: calc(100% - 3rem);
         left: 50%;
