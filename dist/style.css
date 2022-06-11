@@ -325,6 +325,7 @@ button:hover::before, .button:hover::before {
   display: block;
   color: hsl(233deg, 26%, 24%);
   padding: 0.625rem;
+  font-weight: 500;
 }
 
 .hero {
