@@ -13,4 +13,8 @@
 node_modules
 package.json
 package-lock.json
+<<<<<<< Updated upstream
 .vscode/
+=======
+.vscode
+>>>>>>> Stashed changes
